@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Form</title>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <h2>Επικοινωνία</h2>
+        <form action="/sendData" method="GET">
+            <label for="firstName">Όνομα*:</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Κεφαλαία" minlength="3" maxlength="30" autocomplete="on" required>
+            <br>
+            
+            <label for="lastName">Επώνυμο*:</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Κεφαλαία" minlength="3" maxlength="30" autocomplete="on" required>
+            <br>
+
+            <label for="phoneNumber">Τηλέφωνο:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+30" minlength="10" maxlength="10">
+            <br>
+
+            <label for="email">Email*:</label>
+            <input type="email" id="email" minlength="7" maxlength="40" placeholder="xxxx@yyyy.zzzz" required>
+            <br>
+
+            <label for="whyContactUs">Λόγος Επικοινωνίας*:</label>
+            <select id="whyContactUs" name="contact">
+                <option value="recognition" selected>Αναγνώριση συγκεκριμένου τίτλου σπουδών</option>
+                <option value="greek">Πληροφορίες για ελληνικό εκπαιδευτικό ίδρυμα</option>
+                <option value="international">Πληροφορίες για διεθνές εκπαιδευτικό ίδρυμα</option>
+                <option value="process">Πληροφορίες για τη διαδικασία αναγνώρισης</option>
+                <option value="organization">Πληροφορίες για τον οργανισμό</option>
+                <option value="law">Πληοροφορίες για τη νομοθεσία</option>
+                <option value="other">Άλλο</option>
+            </select>
+            <br>
+            <br>
+
+            Περιγράψτε μας τους λόγους για τους οποίους επικοινωνείτε μαζί μας. Σε περίπτωση που ενδιαφέρεστε για πληροφορίες πάνω σε συγκεκριμένο εκπαιδευτικό ίδρυμα ή τίτλο σπουδών, φροντίστε να τα αναφέρετε.
+            <label for="comments">Σχόλια:</label>
+            <textarea id="comments" name="comments" placeholder="Τα σχόλιά σας..."  minlength="10" maxlength="500" required></textarea>
+            <br>
+            <br>
+            Τα πεδία με τον συμβολισμό (*) είναι υποχρεωτικά.
+            <br>
+
+            <input type="submit" value="Αποστολή">
+            <input type="reset" value="Διαφραφή"
+
+        </form>
+    </body>
+
+</html>
