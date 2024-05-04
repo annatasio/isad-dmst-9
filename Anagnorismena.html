@@ -3,12 +3,26 @@
     <head>
         <title>Recognized Universities and Degrees</title>
         <meta charset="UTF-8">
-        <!--<link rel="stylesheet" href="css/exercise.css">  ADD THE CORRECT CSS FILE-->  
+        <link rel="stylesheet" href="css/Anagnorismena.css">  
+
     </head>
 
     <body>  
       
     <img src = "images/logoDoatap.jpeg" alt = "Doatap Logo">
+
+    <div class="input-parameters">
+        <input type="text" id="ParameterCountry" placeholder="Enter the country">
+    </div>
+    <div class="input-parameters">
+        <input type="text" id="ParameterCity" placeholder="Enter the city">
+    </div>
+    <div class="input-parameters">
+        <input type="text" id="ParameterName" placeholder="Enter the name">
+    </div>
+    <div class="input-parameters">
+        <button onclick="filterTable()">Search</button>
+    </div>
     <p> <b> Σημειώνεται </b> ότι αν κάποιο συγκεκριμένο Εκπαιδευτικό Ίδρυμα της αλλοδαπής δεν περιλαμβάνεται σε αυτό το μητρώο, 
     αυτό σημαίνει είτε ότι δεν αναγνωρίζεται είτε ότι δεν έχει δοθεί ακόμα η ευκαιρία στον Δ.Ο.Α.Τ.Α.Π. να αποφανθεί για την ένταξή του ή όχι. 
     Για να αναγνωρισθεί ένας τίτλος από τον Δ.Ο.Α.Τ.Α.Π., 
@@ -37,6 +51,7 @@
         </table>
 
         <script src="scripts/FillingTableRows.js"></script>
+        <script src="scripts/FilteringTableRows.js"></script>
 
     </div>
 
