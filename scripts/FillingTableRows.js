@@ -12,29 +12,19 @@ window.onload = function() {
       
       // Iterate over each line and create table rows
       lines.forEach(line => {
-        // Split each line into cells (assuming cells are separated by a delimiter like comma)
-        const cells = line.split(',');
+        // Split each line by colon (:)
+        const cells = line.split(':');
         
         // Create a new table row
         const row = document.createElement('tr');
         
         // Iterate over each cell
         cells.forEach(cell => {
-          // Check if cell contains elements within parentheses
-          const matches = cell.match(/\((.*?)\)/);
-          if (matches) {
-            // If elements within parentheses found, concatenate them and create a new cell
-            const cellElement = document.createElement('td');
-            cellElement.textContent = matches[0]; // Take the first match
-            cellElement.style.border = '1px solid black'; // Add border styling
-            row.appendChild(cellElement);
-          } else {
-            // If no elements within parentheses, create a new cell with original content
-            const cellElement = document.createElement('td');
-            cellElement.textContent = cell.trim();
-            cellElement.style.border = '1px solid black'; // Add border styling
-            row.appendChild(cellElement);
-          }
+          // Create a new table cell
+          const cellElement = document.createElement('td');
+          cellElement.textContent = cell.trim();
+          cellElement.style.border = '1px solid black'; // Add border styling
+          row.appendChild(cellElement);
         });
         
         // Add the row to the table body
@@ -43,4 +33,3 @@ window.onload = function() {
     })
     .catch(error => console.error('Error reading the file:', error));
 };
-
