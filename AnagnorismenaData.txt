@@ -1,0 +1,8 @@
+Albania,Tirana,Economic School of Tirana,(GM,IM,FM)
+Belgium,Brussels,Medical School of Brussels,(Dr,Bachelor)
+AFGHANISTAN,BALKH,BALKH UNIVERSITY,(Bachelor of Arts,Bachelor of Science,Bachelor of Engineering,Bachelor of Veterinary Medicine,Medical Doctor,Master)
+AFGHANISTAN,KABUL,KABUL UNIVERSITY,(Bachelor of Arts,Bachelor of Science,Bachelor of Engineering,Bachelor of Veterinary Medicine,Medical Doctor,Master)
+ALBANIA,TIRANA,AMERICAN UNIVERSITY OF TIRANA,(Diplome Bachelor,Diplome,Diplome Master,Diplome Master I Shkencave Cikel I Integruar)
+ALBANIA,DURRES,UNIVERSITY OF DURRES “ALEKSANDER MOISIU”,(Diplome Bachelor,Diplome,Diplome Master,Diplome Master I Shkencave Cikel I Integruar)
+DENMARK,COPENHAGEN,COPENHAGEN BUSINESS ACADEMY,(DIPLOMINGENIOR,BACHELOR’S DEGREE,MASTER CANDIDATUS,Masters degree,DOKTORGRAD/PhD)
+DENMARK,COPENHAGEN,IT UNIVERSITY OF COPENHAGEN,(DIPLOMINGENIOR,BACHELOR’S DEGREE,MASTER CANDIDATUS,Masters degree,DOKTORGRAD/PhD)
