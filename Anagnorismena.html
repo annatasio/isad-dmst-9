@@ -3,22 +3,49 @@
     <head>
         <title>Recognized Universities and Degrees</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/Anagnorismena.css">  
+        <link rel="stylesheet" href="css/Anagnorismena.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     </head>
 
     <body>  
-      
-    <img src = "images/logoDoatap.jpeg" alt = "Doatap Logo">
+     
+        <div class="im">
+            <img src = "images/doatap2.png" alt = "Doatap Logo">
+        </div>
+    
+    <br>
 
     <div class="input-parameters">
-        <input type="text" id="ParameterCountry" placeholder="Enter the country">
+        <label for="country">Enter the Country:</label>
+        <br>
+        <select name="country" id="country"> 
+            <option value="Albania">Albania</option> 
+            <option value="Afghanistan">Afghanistan</option> 
+            <option value="Belgium">Belgium</option> 
+            <option value="Denmark">Denmark</option> 
+        </select>
     </div>
     <div class="input-parameters">
-        <input type="text" id="ParameterCity" placeholder="Enter the city">
+        <label for="city">Enter the City:</label>
+        <br>
+        <select name="city" id="city"> 
+            <option value="Balkh">Balkh</option> 
+            <option value="Brussels">Brussels</option>
+            <option value="Copenhagen">Copenhagen</option> 
+            <option value="Durres">Durres</option> 
+            <option value="Kabul">Kabul</option>
+            <option value="Tirana">Tirana</option>  
+        </select>
     </div>
     <div class="input-parameters">
-        <input type="text" id="ParameterName" placeholder="Enter the name">
+        <label for="name">Enter the Name:</label>
+        <br>
+        <select name="name" id="name"> 
+            <option value="Name1">Name1</option> 
+            <option value="Name2">Name2</option>
+            <option value="Name3">Name3</option> 
+        </select>
     </div>
     <div class="input-parameters">
         <button onclick="filterTable()">Search</button>
@@ -48,14 +75,11 @@
                 </tbody>
 
         </table>
-
         <script src="scripts/FillingTableRows.js"></script>
         <script src="scripts/FilteringTableRows.js"></script>
-
     </div>
-
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
     </body>
-
-
 </html>
 
