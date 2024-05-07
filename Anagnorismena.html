@@ -19,7 +19,8 @@
     <div class="input-parameters">
         <label for="country">Enter the Country:</label>
         <br>
-        <select name="country" id="country"> 
+        <select name="country" id="country">
+            <option value="All"></option>
             <option value="Albania">Albania</option> 
             <option value="Afghanistan">Afghanistan</option> 
             <option value="Belgium">Belgium</option> 
@@ -29,7 +30,8 @@
     <div class="input-parameters">
         <label for="city">Enter the City:</label>
         <br>
-        <select name="city" id="city"> 
+        <select name="city" id="city">
+            <option value="All"></option> 
             <option value="Balkh">Balkh</option> 
             <option value="Brussels">Brussels</option>
             <option value="Copenhagen">Copenhagen</option> 
@@ -41,14 +43,15 @@
     <div class="input-parameters">
         <label for="name">Enter the Name:</label>
         <br>
-        <select name="name" id="name"> 
-            <option value="Name1">Name1</option> 
-            <option value="Name2">Name2</option>
-            <option value="Name3">Name3</option> 
+        <select name="name" id="name">
+            <option value="All"></option>
+            <option value="Name1">American University of Tirana</option> 
+            <option value="Name2">Economic School of Tirana</option>
+            <option value="Name3">University of Durres "ALEKSANDER MOISIU"</option> 
         </select>
     </div>
     <div class="input-parameters">
-        <button onclick="filterTable()">Search</button>
+        <button id="searchBtn">Search</button>
     </div>
     <p> <b> Σημειώνεται </b> ότι αν κάποιο συγκεκριμένο Εκπαιδευτικό Ίδρυμα της αλλοδαπής δεν περιλαμβάνεται σε αυτό το μητρώο, 
     αυτό σημαίνει είτε ότι δεν αναγνωρίζεται είτε ότι δεν έχει δοθεί ακόμα η ευκαιρία στον Δ.Ο.Α.Τ.Α.Π. να αποφανθεί για την ένταξή του ή όχι. 
@@ -76,7 +79,7 @@
 
         </table>
         <script src="scripts/FillingTableRows.js"></script>
-        <script src="scripts/FilteringTableRows.js"></script>
+        <script src="scripts/FilteringTableRows1.js"></script>
     </div>
     <br><br>
     <footer class="footer">
