@@ -4,55 +4,17 @@
         <title>Recognized Universities and Degrees</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/Anagnorismena.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     </head>
 
-    <body>  
-     
+    <body>
         <div class="im">
             <img src = "images/doatap2.png" alt = "Doatap Logo">
         </div>
     
     <br>
 
-    <div class="input-parameters">
-        <label for="country">Enter the Country:</label>
-        <br>
-        <select name="country" id="country">
-            <option value="All"></option>
-            <option value="Albania">Albania</option> 
-            <option value="Afghanistan">Afghanistan</option> 
-            <option value="Belgium">Belgium</option> 
-            <option value="Denmark">Denmark</option> 
-        </select>
-    </div>
-    <div class="input-parameters">
-        <label for="city">Enter the City:</label>
-        <br>
-        <select name="city" id="city">
-            <option value="All"></option> 
-            <option value="Balkh">Balkh</option> 
-            <option value="Brussels">Brussels</option>
-            <option value="Copenhagen">Copenhagen</option> 
-            <option value="Durres">Durres</option> 
-            <option value="Kabul">Kabul</option>
-            <option value="Tirana">Tirana</option>  
-        </select>
-    </div>
-    <div class="input-parameters">
-        <label for="name">Enter the Name:</label>
-        <br>
-        <select name="name" id="name">
-            <option value="All"></option>
-            <option value="Name1">American University of Tirana</option> 
-            <option value="Name2">Economic School of Tirana</option>
-            <option value="Name3">University of Durres "ALEKSANDER MOISIU"</option> 
-        </select>
-    </div>
-    <div class="input-parameters">
-        <button id="searchBtn">Search</button>
-    </div>
     <p> <b> Σημειώνεται </b> ότι αν κάποιο συγκεκριμένο Εκπαιδευτικό Ίδρυμα της αλλοδαπής δεν περιλαμβάνεται σε αυτό το μητρώο, 
     αυτό σημαίνει είτε ότι δεν αναγνωρίζεται είτε ότι δεν έχει δοθεί ακόμα η ευκαιρία στον Δ.Ο.Α.Τ.Α.Π. να αποφανθεί για την ένταξή του ή όχι. 
     Για να αναγνωρισθεί ένας τίτλος από τον Δ.Ο.Α.Τ.Α.Π., 
@@ -60,35 +22,78 @@
 
     <hr>
 
-    <div id="List of Recognized">
-        <table id="Table of Recognized Universities and Degrees" border="1" width="100%">
-            <caption>Recognized Universities and Degrees</caption>
-                <thead>
-                    <tr>
-                        <th>COUNTRY</th>
-                        <th>CITY</th>
-                        <th>UNIVERSITY</th>
-                        <th>DEGREES</th>
-                        <th>SEE CERTIFICATION</th>
-                    </tr>
-                </thead>
+    <div class="title">
+        <h3>Recognized Universities and Degrees</h3>
+    </div>
 
-                <tbody id="TableBody">
-                    <!-- Table rows will be dynamically populated here -->
-                </tbody>
+    <div class="search">
+        <div class="input-parameters">
+            <label for="country">Enter the Country:</label>
+            <br>
+            <select name="country" id="country">
+                <option value="All"></option>
+                <option value="Albania">Albania</option> 
+                <option value="Afghanistan">Afghanistan</option> 
+                <option value="Belgium">Belgium</option> 
+                <option value="Denmark">Denmark</option> 
+            </select>
+        </div>
+        <div class="input-parameters">
+            <label for="city">Enter the City:</label>
+            <br>
+            <select name="city" id="city">
+                <option value="All"></option> 
+                <option value="Balkh">Balkh</option> 
+                <option value="Brussels">Brussels</option>
+                <option value="Copenhagen">Copenhagen</option> 
+                <option value="Durres">Durres</option> 
+                <option value="Kabul">Kabul</option>
+                <option value="Tirana">Tirana</option>  
+            </select>
+        </div>
+        <div class="input-parameters">
+            <label for="name">Enter the Name:</label>
+            <br>
+            <select name="name" id="name">
+                <option value="All"></option>
+                <option value="Name1">American University of Tirana</option> 
+                <option value="Name2">Economic School of Tirana</option>
+                <option value="Name3">University of Durres "ALEKSANDER MOISIU"</option> 
+            </select>
+        </div>
+        <div class="input-parameters">
+            <button id="searchBtn">Search</button>
+        </div>
+    </div>
+    <div id="List of Recognized"  class="table-wrapper">
+        <table id="Table of Recognized Universities and Degrees" border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>COUNTRY</th>
+                    <th>CITY</th>
+                    <th>UNIVERSITY</th>
+                    <th>DEGREES</th>
+                    <th>SEE CERTIFICATION</th>
+                </tr>
+            </thead>
+
+            <tbody id="TableBody">
+                <!-- Table rows will be dynamically populated here -->
+            </tbody>
 
         </table>
+    </div>
         <script src="scripts/FillingTableRows.js"></script>
         <script src="scripts/FilteringTableRows1.js"></script>
-    </div>
-    <br><br>
-    <footer class="footer">
-        <div class="foot">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-linkedin"></a>
-        </div>
-      </footer>  
+        <br><br>
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+        <footer class="foot">
+            <div class="rounded-social-buttons">
+                <a class="social-button facebook" href="https://www.facebook.com/doatap/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="social-button twitter" href="https://www.twitter.com/doatap" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="social-button linkedin" href="https://www.linkedin.com/company/doatap" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </footer>
     </body>
 </html>
 

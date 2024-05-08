@@ -23,6 +23,7 @@ window.onload = function() {
           const cellElement = document.createElement('td');
           cellElement.textContent = cell.trim();
           cellElement.style.border = '1px solid black'; // Add border styling
+          cellElement.style.padding = '8px'
           row.appendChild(cellElement);
         });
         
