@@ -1,3 +1,29 @@
+html, body, div, h3, label {
+	margin: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 body {
     margin: 20px;
 }
@@ -8,11 +34,11 @@ body {
 }
 
 .search {
-    text-align: right;
     margin: 20px;
     display: inline-block;
     margin-left: 32em;
     margin-bottom: -1em;
+    text-align: right;
 }
 
 .im {
@@ -100,8 +126,8 @@ table {
     position: sticky;
     top: 0px;
     margin: 20px;
-    display: inline-block;
     margin-bottom: -1em;
+    display: inline-block;
 }
 
 th {
