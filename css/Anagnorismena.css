@@ -177,3 +177,6 @@ th {
   margin-right: 20px;
 }
 
+select {
+  overflow-y: scroll;
+}
