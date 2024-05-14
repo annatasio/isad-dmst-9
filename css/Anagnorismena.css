@@ -126,6 +126,7 @@ table {
     border-collapse: separate;
     border-spacing: 0px;
     min-width: min-content;
+    width:"100%"
 }
 
 .title {

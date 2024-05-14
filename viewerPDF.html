@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PDF Viewer</title>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="css/Anagnorismena.css">
+
+        <!-- Include PDF.js library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+        <style>
+            canvas {
+                border: 1px solid black; /* Add border to the canvas */
+                display: block;
+                margin: 0 auto; /* Center the canvas */
+            }
+            .controls {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .controls button {
+                margin: 5px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+    
+    <div class="im">
+        <img src = "images/doatap2.png" alt = "Doatap Logo">
+    </div>
+    
+    <br>
+
+    <h1>Παρακάτω προβάλλεται το pdf για το αναγνωρισμένο ίδρυμα που επέλεξες. Περιέχει όλους τους αναγνωρισμένους τίτλους που είναι αποδεκτοί
+    για τη συγκεκριμένη χώρα στην οποία υπάγεται το επιλεγμένο ίδρυμα. Για αυτό το λόγο, ενδέχεται κάποιοι από τους αναφερόμενους τίτλους 
+    σπουδών να μην απονέμονται από το εκάστοτε ιδρυμα.
+    </h1>
+
+    <hr>
+
+    <div class="controls">
+        <button onclick="prevPage()">Previous Page</button> <!-- Button for previous page -->
+        <button onclick="nextPage()">Next Page</button> <!-- Button for next page -->
+        <button onclick="downloadPDF()">Download PDF</button> <!-- Button to download PDF -->
+    </div>
+
+    <canvas id="pdfCanvas"></canvas> <!-- Add a canvas element to render the PDF -->
+
+    <script>
+    var pdfDoc = null;
+    var pageNum = 1;
+    var pageRendering = false;
+    var canvas = document.getElementById('pdfCanvas');
+    var ctx = canvas.getContext('2d');
+
+    function loadPDFIntoCanvas(pdfPath) {
+        pdfjsLib.getDocument(pdfPath).promise.then(function(pdf) {
+            pdfDoc = pdf;
+            renderPage(pageNum);
+        }, function(error) {
+            console.error('Error loading PDF:', error);
+        });
+    }
+
+    function renderPage(num) {
+        pageRendering = true;
+        pdfDoc.getPage(num).then(function(page) {
+            var viewport = page.getViewport({ scale: 1.5 });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            var renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            page.render(renderContext).promise.then(function() {
+                pageRendering = false;
+            });
+        });
+    }
+
+    function queueRenderPage(num) {
+        if (pageRendering) {
+            setTimeout(function() { queueRenderPage(num); }, 100);
+        } else {
+            renderPage(num);
+        }
+    }
+
+    function prevPage() {
+        if (pageNum <= 1) {
+            return;
+        }
+        pageNum--;
+        queueRenderPage(pageNum);
+    }
+
+    function nextPage() {
+        if (pageNum >= pdfDoc.numPages) {
+            return;
+        }
+        pageNum++;
+        queueRenderPage(pageNum);
+    }
+
+    function downloadPDF() {
+        // Get the PDF path from the URL query parameter
+        var urlParams = new URLSearchParams(window.location.search);
+        var pdfPath = urlParams.get('pdf');
+        
+        // Trigger the download
+        if (pdfPath) {
+            var link = document.createElement('a');
+            link.href = pdfPath;
+            link.download = 'document.pdf'; // Set the filename for the downloaded PDF
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            console.error('PDF path not provided.');
+        }
+    }
+
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var pdfPath = urlParams.get('pdf');
+        if (pdfPath) {
+            loadPDFIntoCanvas(pdfPath);
+        } else {
+            console.error('PDF path not provided.');
+        }
+    };
+    </script>
+
+    <script>
+        function openPDF(rowIdx) {
+            // Get the path to the PDF file based on the row index
+            var pdfPath = 'pdfs/assignment-2024-' + rowIdx + '.pdf'; // Adjust the path as needed
+        
+            // Open the PDF in a new window or tab
+            window.open('viewer.html?pdf=' + encodeURIComponent(pdfPath), '_blank');
+        }
+    </script>
+
+    <script>
+        function renderPage(num) {
+        pageRendering = true;
+        pdfDoc.getPage(num).then(function(page) {
+            var viewport = page.getViewport({ scale: 1.5 });
+
+            // Adjust the height of the canvas to half of the viewport height.
+            // This is possible because all the projecting pdfs have their pages half-filled with text.
+            canvas.height = viewport.height / 2;
+            canvas.width = viewport.width;
+            var renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            page.render(renderContext).promise.then(function() {
+                pageRendering = false;
+            });
+        });
+    }
+    </script>
+
+
+    <br><br>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    <footer class="foot">
+        <div class="contact-info">
+            <h6 style="text-align: center; font-size: 20px;">ΕΠΙΚΟΙΝΩΝΙΑ</h6>
+            <br>
+            <hr style=" color: white;">
+            <div class="location">
+                <i class='fas fa-map-pin' style="font-size: 24px; margin-bottom: 0em;"></i>
+                <p style="display: inline-block; margin-left: 0.5em; margin-top: 0em;">Αγ. Κωνσταντίνου 54</p>
+                <p style="margin-left: 2em; line-height: 0.5;">Τ.Κ. 104 37, Αθήνα</p>
+            </div>
+            <div class="phone">
+                <i class='fas fa-phone' style="font-size: 24px;"></i>
+                <p style="display: inline-block;">2107000800/2105281000</p>
+            </div>
+            </div>
+            <div class="rounded-social-buttons">
+                <a class="social-button facebook" href="https://www.facebook.com/doatap/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="social-button twitter" href="https://www.twitter.com/doatap" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="social-button linkedin" href="https://www.linkedin.com/company/doatap" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </footer>
+
+        
+    
+
+    </body>
+</html>
