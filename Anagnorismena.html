@@ -11,12 +11,125 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+        <style>
+            /* Styles for login section */
+            #login-section {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                background-color: #f0f0f0;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+        </style>
+
     </head>
 
     <body>
         <div class="im">
             <img src = "images/doatap2.png" alt = "Doatap Logo">
         </div>
+
+        <div id="login-section">
+            <h3>Login for staff members only!</h3>
+            <form id="login-form">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" placeholder="Enter your password">
+                        <i class="toggle-password fas fa-eye" onclick="togglePasswordVisibility()"></i>
+                    </div>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <script>
+            // Enable password visibility
+            function togglePasswordVisibility() {
+                var passwordInput = document.getElementById("password");
+                var eyeIcon = document.querySelector(".toggle-password");
+    
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    eyeIcon.classList.remove("fa-eye");
+                    eyeIcon.classList.add("fa-eye-slash");
+                } else {
+                    passwordInput.type = "password";
+                    eyeIcon.classList.remove("fa-eye-slash");
+                    eyeIcon.classList.add("fa-eye");
+                }
+            }
+        </script>
+    
+        <button id="ask-help">ASK HELP</button>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const loginForm = document.getElementById("login-form");
+                const askHelpButton = document.getElementById("ask-help");
+    
+                loginForm.addEventListener("submit", function(event) {
+                    event.preventDefault(); // Prevent form submission, we need it only to confirm the credentials.
+                    
+                    // Get entered username and password
+                    const username = loginForm.elements.username.value;
+                    const password = loginForm.elements.password.value;
+    
+                    // Perform login validation
+                    validateLogin(username, password);
+                });
+    
+                askHelpButton.addEventListener("click", function() {
+                    // Check if user is logged in
+                    if (!isLoggedIn()) {
+                        // Redirect to form.html if not logged in
+                        window.location.href = "form.html";
+                    } else {
+                        // Show message to logged-in user
+                        alert("See the list of not recognized universities and degrees. If you still don't find what you need, contact the system's administrator");
+                    }
+                });
+
+                    
+                // Define a variable to track the login status
+                var isLoggedInStatus = false;
+    
+                // Function to validate login credentials
+                function validateLogin(username, password) {
+                    // Perform validation based on text file "Credentials.txt"
+                    fetch('Credentials.txt')
+                        .then(response => response.text())
+                        .then(data => {
+                            const lines = data.split('\n');
+                            for (const line of lines) {
+                                const [storedUsername, storedPassword] = line.trim().split(':');
+                                if (username === storedUsername && password === storedPassword) {
+                                    // Login successful
+                                    alert("Login successful!");
+                                    // Set isLoggedInStatus to true upon successful login
+                                    isLoggedInStatus = true;
+                                    return;
+                                }
+                            }
+                            // Login failed
+                            alert("Invalid username or password.");
+                        })
+                        .catch(error => console.error('Error reading credentials file:', error));
+                }
+
+                function isLoggedIn() {
+                    // Return the value of the isLoggedInStatus variable
+                    return isLoggedInStatus;
+                }
+            });
+        </script>
     
     <br>
 
