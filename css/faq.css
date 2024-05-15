@@ -8,7 +8,7 @@ body {
     padding: 20px;
     border: 1px solid #033E69; /*χρώμα για το πρώτο πλαίσιο*/
     border-radius: 5px;
-    text-align: justify;
+    text-align: justify; /*στοίχιση*/
 }
 
 .faq-item {
@@ -31,7 +31,7 @@ body {
     border-top: none;
     border-radius: 0 0 5px 5px;
     background-color: #FFFFFF;
-    display: inline-block;
+    display: inline-block; /*στοίχιση*/
 }
 
 h2 {
