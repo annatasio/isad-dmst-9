@@ -43,10 +43,15 @@
     <hr>
 
     <div class="controls">
-        <button onclick="prevPage()">Previous Page</button> <!-- Button for previous page -->
-        <button onclick="nextPage()">Next Page</button> <!-- Button for next page -->
+        <button onclick="prevPage()">Previous Page PDF</button> <!-- Button for previous page-->
+        <button onclick="nextPage()">Next Page PDF</button> <!-- Button for next page-->
         <button onclick="downloadPDF()">Download PDF</button> <!-- Button to download PDF -->
+        <button onclick="printPDF()">Print PDF</button> <!-- Button to print PDF -->
     </div>
+
+    <!--Both functionalities for the button Previous Page PDF and Next Page PDF won't be practical in our case because all the pdfs
+    have only a single page. But still, in case the organization DOATAP wishes to add more date in the pdfs that overextend the length
+    of a single page, it will be usefull these functionalities for leafing through the pages to be available.-->
 
     <canvas id="pdfCanvas"></canvas> <!-- Add a canvas element to render the PDF -->
 
@@ -133,6 +138,27 @@
             console.error('PDF path not provided.');
         }
     };
+    </script>
+
+    <script>
+
+        function printPDF() {
+            // Check if the PDF document is loaded
+            if (pdfDoc) {
+                // Get the canvas element
+                var canvas = document.getElementById('pdfCanvas');
+                var win = window.open('', '_blank');
+                
+                // Write the canvas content to the new window
+                win.document.write('<img src="' + canvas.toDataURL() + '" style="width:100%;">');
+                
+                // Print the content
+                win.print();
+            } else {
+                console.error('PDF document not loaded.');
+            }
+        }
+    
     </script>
 
     <script>
