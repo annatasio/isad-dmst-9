@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
-        <script src="scripts/FilteringTableRows1.js"></script>
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     </head>
 
@@ -171,6 +170,40 @@
     
         </table>
     </div>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+        // Function to filter table rows based on selected parameters
+        function filterTable() {
+            var country = document.getElementById("country").value;
+            var city = document.getElementById("city").value;
+            var name = document.getElementById("name").value;
+            
+            var tableRows = document.getElementById("Table of Recognized Universities and Degrees").getElementsByTagName("tr");
+            
+            for (var i = 1; i < tableRows.length; i++) {
+                var row = tableRows[i];
+                var rowCountry = row.cells[0].innerText;
+                var rowCity = row.cells[1].innerText;
+                var rowName = row.cells[2].innerText;
+                
+                // Check if the row matches the selected parameters
+                if ((country === "All" || rowCountry === country) &&
+                    (city === "All" || rowCity === city) &&
+                    (name === "All" || rowName === name)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            }
+        }
+
+        // Attach event listener to the search button
+        document.getElementById("searchBtn").addEventListener("click", filterTable);
+    });
+
+    </script>
     
     
     <script>
