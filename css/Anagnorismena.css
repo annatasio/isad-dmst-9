@@ -181,3 +181,21 @@ th {
 select {
   overflow-y: scroll;
 }
+
+#ask-help {
+  text-align: right;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-left: 2em;
+}
+
+#login-section {
+  position: fixed;
+  top: 10px;
+  right: 50px;
+  background-color: #e3e9ee;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
