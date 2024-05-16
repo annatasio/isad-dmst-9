@@ -3,12 +3,13 @@ body {
 }
 
 .faq {
-    max-width: 600px;
+    /*max-width: 600px;*/
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #033E69; /*χρώμα για το πρώτο πλαίσιο*/
     border-radius: 5px;
     text-align: justify; /*στοίχιση*/
+    width: 80%;
 }
 
 .faq-item {
@@ -34,7 +35,7 @@ body {
     display: inline-block; /*στοίχιση*/
 }
 
-h2 {
+h1 {
     color: #033E69; /*χρώμα επικεφαλίδας*/
     text-align: center; /*κεντράρω την επικεφαλίδα*/
     margin: 20px 0; /* Προσθήκη κατακόρυφου περιθωρίου*/
