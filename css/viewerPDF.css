@@ -34,22 +34,8 @@ q:before, q:after {
 	content: none;
 }
 
-.input-parameters {
-  display: inline-block;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.search {
-  margin: 20px;
-  display: inline-block;
-  margin-left: auto;
-  margin-bottom: -1em;
-  text-align: right;
-}
-
 .im {
-  background-color: #002e69;
+    background-color: #002e69;
 }
 
 .rounded-social-buttons {
@@ -119,83 +105,45 @@ q:before, q:after {
   
   .rounded-social-buttons .social-button.tiktok {
     background: #000000;
-  }
-
-table {
-    border: 1px solid black;
-    border-collapse: separate;
-    border-spacing: 0px;
-    min-width: min-content;
-    width:"100%"
-}
-
-.title {
-    font-size: large;
-    text-align: left;
-    top: 0px;
-    margin: 20px;
-    margin-bottom: -1em;
-    display: inline-block;
-    margin-left: 20px;
-}
-
-th {
-    position: sticky;
-    top: 0px;
-    background-color: #ededed;
-    border: 1px solid black;
-    padding: 10px;
-}
-
-.table-wrapper {
-    max-height: 300px;
-    overflow-y: scroll;
-    margin: 20px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 3px black;
-    border-radius: 5px;
-    max-width: fit-content;
-    margin-left: 20px;
 }
 
 .foot {
-  background-color: #e3e9ee;
+    background-color: #e3e9ee;
+  }
+  
+  .location {
+    text-align: left;
+    margin-top: 2em;
+    letter-spacing: 2px;
+    line-height: 3;
+    margin-left: 20px;
+  }
+  
+  .phone {
+    text-align: right;
+    line-height: 2;
+    margin-top: -3em;
+    letter-spacing: 2px;
+    margin-right: 20px;
+  }
+
+h1 {
+    margin: 20px;
 }
 
-.location {
-  text-align: left;
-  margin-top: 2em;
-  letter-spacing: 2px;
-  line-height: 3;
-  margin-left: 20px;
+hr {
+    margin: 20px;
 }
 
-.phone {
-  text-align: right;
-  line-height: 2;
-  margin-top: -3em;
-  letter-spacing: 2px;
-  margin-right: 20px;
+canvas {
+    border: 1px solid black; /* Add border to the canvas */
+    display: block;
+    margin: 0 auto; /* Center the canvas */
 }
-
-select {
-  overflow-y: scroll;
+.controls {
+    text-align: center;
+    margin-bottom: 10px;
 }
-
-#ask-help {
-  text-align: right;
-  border-radius: 5px;
-  border: 1px solid black;
-  margin-left: 2em;
+.controls button {
+    margin: 5px;
 }
-
-#login-section {
-  position: fixed;
-  top: 10px;
-  right: 50px;
-  background-color: #e3e9ee;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
