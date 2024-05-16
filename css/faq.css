@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.faq {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #033E69; /*χρώμα για το πρώτο πλαίσιο*/
+    border-radius: 5px;
+    text-align: justify; /*στοίχιση*/
+}
+
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #C4E0F6; /*χρώμα για το πλαίσιο της κάθε ερώτησης*/
+    border-radius: 5px;
+    font-weight: bold;
+    color: #033E69; /*χρώμα για τις ερωτήσεις*/
+}
+
+.faq-answer {
+    padding: 10px;
+    border: 1px solid #C4E0F6;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #FFFFFF;
+    display: inline-block; /*στοίχιση*/
+}
+
+h2 {
+    color: #033E69; /*χρώμα επικεφαλίδας*/
+    text-align: center; /*κεντράρω την επικεφαλίδα*/
+    margin: 20px 0; /* Προσθήκη κατακόρυφου περιθωρίου*/
+    padding: 10px 0; /* Προσθήκη κατακόρυφου γεμίσματος*/
+}
+
+
+/* χρώματα 
+ΜΠΛΕ ΣΚΟΥΡΟ: #033E69
+ΜΠΛΕ ΜΕΝΟΥ: #C4E0F6
+ΑΣΠΡΟ: #FFFFFF
