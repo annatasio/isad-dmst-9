@@ -9,7 +9,7 @@ body {
     border: 1px solid #033E69; /*χρώμα για το πρώτο πλαίσιο*/
     border-radius: 5px;
     text-align: justify; /*στοίχιση*/
-    width: 80%;
+    width: 70%;
 }
 
 .faq-item {
