@@ -6,7 +6,7 @@ body {
     /*max-width: 600px;*/
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #033E69; /*χρώμα για το πρώτο πλαίσιο*/
+    border: 1px solid #022E69; /*χρώμα για το πρώτο πλαίσιο*/
     border-radius: 5px;
     text-align: justify; /*στοίχιση*/
     width: 70%;
@@ -23,7 +23,7 @@ body {
     border: 1px solid #C4E0F6; /*χρώμα για το πλαίσιο της κάθε ερώτησης*/
     border-radius: 5px;
     font-weight: bold;
-    color: #033E69; /*χρώμα για τις ερωτήσεις*/
+    color: #022E69; /*χρώμα για τις ερωτήσεις*/
 }
 
 .faq-answer {
@@ -40,7 +40,7 @@ body {
 }
 
 h1 {
-    color: #033E69; /*χρώμα επικεφαλίδας*/
+    color: #022E69; /*χρώμα επικεφαλίδας*/
     text-align: center; /*κεντράρω την επικεφαλίδα*/
     margin: 20px 0; /* Προσθήκη κατακόρυφου περιθωρίου*/
     padding: 10px 0; /* Προσθήκη κατακόρυφου γεμίσματος*/
@@ -141,3 +141,6 @@ h1 {
     margin-right: 20px;
   }
   
+ /*ΜΠΛΕ ΣΚΟΥΡΟ: #022E69
+ ΜΠΛΕ ΜΕΝΟΥ: #C4E0F6
+ ΑΣΠΡΟ: #FFFFFF 
