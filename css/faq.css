@@ -2,8 +2,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+h1 {
+  color: #022E69; /*χρώμα επικεφαλίδας*/
+  text-align: center; /*κεντράρω την επικεφαλίδα*/
+  margin: 20px 0; /* Προσθήκη κατακόρυφου περιθωρίου*/
+  padding: 10px 0; /* Προσθήκη κατακόρυφου γεμίσματος*/
+}
+
 .faq {
-    /*max-width: 600px;*/
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #022E69; /*χρώμα για το πρώτο πλαίσιο*/
@@ -14,6 +20,16 @@ body {
 
 .faq-item {
     margin-bottom: 10px;
+}
+
+details summary {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #002e69; /* changed color to match the title */
+  font-size: 1.1em; /* increased font size */
 }
 
 .faq-question {
@@ -35,19 +51,12 @@ body {
     display: inline-block; /*στοίχιση*/
 }
 
-.im {
-    background-color: #002e69;
-}
-
-h1 {
-    color: #022E69; /*χρώμα επικεφαλίδας*/
-    text-align: center; /*κεντράρω την επικεφαλίδα*/
-    margin: 20px 0; /* Προσθήκη κατακόρυφου περιθωρίου*/
-    padding: 10px 0; /* Προσθήκη κατακόρυφου γεμίσματος*/
-}
-
 .bold-word {
   font-weight: bold;
+}
+
+.im {
+    background-color: #002e69;
 }
 
 .rounded-social-buttons {
