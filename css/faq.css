@@ -1,5 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0px;
 }
 
 h1 {
@@ -9,13 +10,14 @@ h1 {
   padding: 10px 0; /* Προσθήκη κατακόρυφου γεμίσματος*/
 }
 
+
 .faq {
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #022E69; /*χρώμα για το πρώτο πλαίσιο*/
-    border-radius: 5px;
-    text-align: justify; /*στοίχιση*/
-    width: 70%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #022E69; /*χρώμα για το πρώτο πλαίσιο*/
+  border-radius: 5px;
+  text-align: justify; /*στοίχιση*/
+  width: 70%;
 }
 
 .faq-item {
@@ -56,7 +58,7 @@ details summary {
 }
 
 .im {
-    background-color: #002e69;
+  background-color: #002e69;
 }
 
 .rounded-social-buttons {
@@ -136,16 +138,18 @@ details summary {
     text-align: left;
     margin-top: 2em;
     letter-spacing: 2px;
-    line-height: 3;
+    line-height: 1.2;
     margin-left: 20px;
+    font-family: sans-serif;
   }
   
   .phone {
     text-align: right;
     line-height: 2;
-    margin-top: -3em;
+    margin-top: -6em;
     letter-spacing: 2px;
     margin-right: 20px;
+    font-family: sans-serif;
   }
   
  /*ΜΠΛΕ ΣΚΟΥΡΟ: #022E69
