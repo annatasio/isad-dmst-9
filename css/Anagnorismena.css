@@ -168,6 +168,7 @@ th {
   letter-spacing: 2px;
   line-height: 3;
   margin-left: 20px;
+  font-family: sans-serif;
 }
 
 .phone {
@@ -176,6 +177,7 @@ th {
   margin-top: -3em;
   letter-spacing: 2px;
   margin-right: 20px;
+  font-family: sans-serif;
 }
 
 select {

@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to bottom, #022E69 112px, #c4e0f6 112px, #d2e7f8 555px,  #022E69 50px);
+    background: linear-gradient(to bottom, #022E69 112px, #022E69 112px, #022E69 555px,  #022E69 50px);
     background-size: 100% 100%;
 }
 
@@ -33,16 +33,13 @@ body {
 }
 
 .logo {
-    margin-left: auto;
-    margin-right: auto;
-    width: 310px; 
-    height: 100px;
+    background-color: #022E69;
 }
 
 .main_image {
     display: block; 
     margin-right: 100%;
-    height: 350px;
+    height: 450px;
     width: 100%;
 }
 
@@ -68,23 +65,98 @@ body {
     color: black;
 }
 
-.contact {
-    text-align: left;
-    padding: 0px 11px;
-    margin: 20px;
-    text-decoration: none;
-    font-size: 17px;
-    font-family: 'Lexend', sans-serif;
-    color: #FFFFFF;
-}
-
-
-#epikoinwnia {
+.rounded-social-buttons {
     text-align: center;
-    font-family: 'Lexend', sans-serif;
-    color: #FFFFFF;
-    padding: 25px;
-}
+    margin: 20px;
+  }
+  
+  .rounded-social-buttons .social-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 3.125rem;
+    height: 3.125rem;
+    border: 0.125rem solid transparent;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+    color: #fefefe;
+    font-size: 1.5625rem;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 1.6875rem;
+    transition: all 0.5s ease;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+    -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  
+  .rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin {
+    font-size: 25px;
+  }
+  
+  .rounded-social-buttons .social-button.facebook {
+    background: #3b5998;
+  }
+  
+  .rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
+    color: #3b5998;
+    background: #fefefe;
+    border-color: #3b5998;
+  }
+  
+  .rounded-social-buttons .social-button.twitter {
+    background: #55acee;
+  }
+  
+  .rounded-social-buttons .social-button.twitter:hover, .rounded-social-buttons .social-button.twitter:focus {
+    color: #55acee;
+    background: #fefefe;
+    border-color: #55acee;
+  }
+  
+  .rounded-social-buttons .social-button.linkedin {
+    background: #007bb5;
+  }
+  
+  .rounded-social-buttons .social-button.linkedin:hover, .rounded-social-buttons .social-button.linkedin:focus {
+    color: #007bb5;
+    background: #fefefe;
+    border-color: #007bb5;
+  }
+  
+  .rounded-social-buttons .social-button.tiktok {
+    background: #000000;
+  }
 
+  .foot {
+    background-color: #022E69;
+  }
+  
+  .location {
+    text-align: left;
+    margin-top: 2em;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-left: 20px;
+    color: white;
+    font-family: sans-serif;
+  }
+  
+  .phone {
+    text-align: right;
+    line-height: 2;
+    margin-top: -6em;
+    letter-spacing: 2px;
+    margin-right: 20px;
+    color: white;
+    font-family: sans-serif;
+  }
+  
 #element1 {float:right;}
 #element2 {float:left;}
