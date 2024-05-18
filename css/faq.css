@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Lexend', sans-serif;
   margin: 0px;
 }
 
@@ -30,7 +30,7 @@ details summary {
   background-color: #FFFFFF;
   border-radius: 5px;
   font-weight: bold;
-  color: #002e69; /* changed color to match the title */
+  color: #002E69; /* changed color to match the title */
   font-size: 1.1em; /* increased font size */
 }
 
@@ -55,6 +55,15 @@ details summary {
 
 .bold-word {
   font-weight: bold;
+}
+
+.info-message {
+  padding: 10px;
+  color: #022E69;
+}
+
+.info-message p {
+  font-size: 15px; /* Ή προσθέστε αυτό εδώ αν θέλετε να αλλάξει μόνο για τα <p> στοιχεία */
 }
 
 .im {
