@@ -153,4 +153,5 @@ canvas {
   line-height: 2;
   color: black;
   font-size: large;
+  cursor: pointer;
 }

@@ -162,10 +162,11 @@ details summary {
   }
 
 .home-button {
-    margin: 20px;
-    line-height: 2;
-    color: black;
-    font-size: large;
+  margin: 10px;
+  line-height: 2;
+  color: black;
+  font-size: large;
+  cursor: pointer;
 }
   
  /*ΜΠΛΕ ΣΚΟΥΡΟ: #022E69

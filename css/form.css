@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -66,7 +65,7 @@ textarea::placeholder {
 }
 
 
-button {
+.re, .su {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -83,7 +82,7 @@ button[type="reset"] {
     background-color: #e74c3c;
 }
 
-button:hover {
+.re:hover, .su:hover {
     background-color: #002b4a;
 }
 
@@ -215,4 +214,5 @@ button:hover {
     line-height: 2;
     color: black;
     font-size: large;
+    cursor: pointer;
   }
