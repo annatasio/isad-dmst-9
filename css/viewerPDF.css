@@ -147,3 +147,10 @@ canvas {
 .controls button {
     margin: 5px;
 }
+
+.home-button {
+  margin: 20px;
+  line-height: 2;
+  color: black;
+  font-size: large;
+}
