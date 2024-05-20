@@ -215,4 +215,29 @@ button[type="reset"] {
     color: black;
     font-size: large;
     cursor: pointer;
-  }
+}
+
+.adress {
+  display: inline-block;
+  margin-left: 0.5em;
+  margin-top: 0em;
+}
+
+.city {
+  margin-left: 2em; 
+  line-height: 0.5;
+}
+
+.pho {
+  display: inline-block;
+}
+
+.cont {
+  text-align: center; 
+  font-size: 20px;
+}
+
+.line {
+  color: white;
+}
+

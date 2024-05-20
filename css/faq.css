@@ -172,7 +172,27 @@ details summary {
   margin-right: -1px;
 }
 
-  
- /*ΜΠΛΕ ΣΚΟΥΡΟ: #022E69
- ΜΠΛΕ ΜΕΝΟΥ: #C4E0F6
- ΑΣΠΡΟ: #FFFFFF 
+.adress {
+  display: inline-block;
+  margin-left: 0.5em;
+}
+
+.city {
+  margin-left: 2em; 
+  line-height: 0.1;
+}
+
+.pho {
+  display: inline-block;
+}
+
+.cont {
+  text-align: center; 
+  font-size: 20px; 
+  margin-top: 10em;
+}
+
+.line {
+  color: white; 
+  margin-top: -3em;
+}
