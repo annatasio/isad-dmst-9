@@ -73,7 +73,9 @@ details summary {
 .rounded-social-buttons {
     text-align: center;
     margin: 20px;
-  }
+    line-height: 0.5;
+    margin-top: -0.2em;
+}
   
   .rounded-social-buttons .social-button {
     display: inline-block;
@@ -147,14 +149,14 @@ details summary {
     text-align: left;
     margin-top: 2em;
     letter-spacing: 2px;
-    line-height: 1.2;
+    line-height: 0.05em;
     margin-left: 20px;
     font-family: sans-serif;
   }
   
   .phone {
     text-align: right;
-    line-height: 2;
+    line-height: 4;
     margin-top: -6em;
     letter-spacing: 2px;
     margin-right: 20px;

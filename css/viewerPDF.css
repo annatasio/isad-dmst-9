@@ -150,7 +150,14 @@ canvas {
 }
 
 .home-button {
-  margin: 20px;
+  margin-left: 20px;
+  line-height: 2;
+  color: black;
+  font-size: large;
+  cursor: pointer;
+}
+
+.back-to-page {
   line-height: 2;
   color: black;
   font-size: large;
