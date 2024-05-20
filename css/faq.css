@@ -158,6 +158,14 @@ details summary {
   color: black;
   font-size: large;
   cursor: pointer;
+  margin-right: -1px;
+}
+
+.back-to-form {
+  line-height: 2;
+  color: black;
+  font-size: large;
+  cursor: pointer;
 }
   
  /*ΜΠΛΕ ΣΚΟΥΡΟ: #022E69
