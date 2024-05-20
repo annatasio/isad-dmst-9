@@ -10,171 +10,179 @@
         <!-- Include PDF.js library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     </head>
-
     <body>
-    
+
     <div class="im">
-        <img src = "images/doatap2.png" alt = "Doatap Logo">
+        <img src="images/doatap2.png" alt="Doatap Logo">
     </div>
     <a class="home-button" href="index.html"><button>Home</button></a>
 
     <h1>Παρακάτω προβάλλεται το pdf για το αναγνωρισμένο ίδρυμα που επέλεξες. Περιέχει όλους τους αναγνωρισμένους τίτλους που είναι αποδεκτοί
-    για τη συγκεκριμένη χώρα στην οποία υπάγεται το επιλεγμένο ίδρυμα. Για αυτό το λόγο, ενδέχεται κάποιοι από τους αναφερόμενους τίτλους 
-    σπουδών να μην απονέμονται από το εκάστοτε ιδρυμα.
+        για τη συγκεκριμένη χώρα στην οποία υπάγεται το επιλεγμένο ίδρυμα. Για αυτό το λόγο, ενδέχεται κάποιοι από τους αναφερόμενους τίτλους 
+        σπουδών να μην απονέμονται από το εκάστοτε ιδρυμα.
     </h1>
 
     <hr>
 
     <div class="controls">
+        <button onclick="prevPDF()">Previous PDF</button> <!-- Button for previous PDF-->
+        <button onclick="nextPDF()">Next PDF</button> <!-- Button for next PDF-->
         <button onclick="prevPage()">Previous Page PDF</button> <!-- Button for previous page-->
         <button onclick="nextPage()">Next Page PDF</button> <!-- Button for next page-->
-        <button onclick="downloadPDF()">Download PDF</button> <!-- Button to download PDF -->
-        <button onclick="printPDF()">Print PDF</button> <!-- Button to print PDF -->
+        <button onclick="downloadPDF()">Download PDF</button> <!-- Button to download PDF-->
+        <button onclick="printPDF()">Print PDF</button> <!-- Button to print PDF-->
     </div>
 
     <!--Both functionalities for the button Previous Page PDF and Next Page PDF won't be practical in our case because all the pdfs
-    have only a single page. But still, in case the organization DOATAP wishes to add more date in the pdfs that overextend the length
-    of a single page, it will be usefull these functionalities for leafing through the pages to be available.-->
+    have only a single half-filled page. But still, in case the organization DOATAP wishes to add more date in the pdfs that overextend 
+    the length of a single page, it will be usefull these functionalities for leafing through the pages to be available.-->
 
-    <canvas id="pdfCanvas"></canvas> <!-- Add a canvas element to render the PDF -->
+    <canvas id="pdfCanvas"></canvas>
 
     <script>
-    var pdfDoc = null;
-    var pageNum = 1;
-    var pageRendering = false;
-    var canvas = document.getElementById('pdfCanvas');
-    var ctx = canvas.getContext('2d');
+        var pdfDoc = null;
+        var pageNum = 1;
+        var pageRendering = false;
+        var canvas = document.getElementById('pdfCanvas');
+        var ctx = canvas.getContext('2d');
+        var currentPDFIndex = 1;
 
-    function loadPDFIntoCanvas(pdfPath) {
-        pdfjsLib.getDocument(pdfPath).promise.then(function(pdf) {
-            pdfDoc = pdf;
-            renderPage(pageNum);
-        }, function(error) {
-            console.error('Error loading PDF:', error);
-        });
-    }
-
-    function renderPage(num) {
-        pageRendering = true;
-        pdfDoc.getPage(num).then(function(page) {
-            var viewport = page.getViewport({ scale: 1.5 });
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-            var renderContext = {
-                canvasContext: ctx,
-                viewport: viewport
-            };
-            page.render(renderContext).promise.then(function() {
-                pageRendering = false;
+        function loadPDFIntoCanvas(pdfPath) {
+            pdfjsLib.getDocument(pdfPath).promise.then(function(pdf) {
+                pdfDoc = pdf;
+                pageNum = 1; // Reset to the first page
+                renderPage(pageNum);
+            }, function(error) {
+                console.error('Error loading PDF:', error);
             });
-        });
-    }
-
-    function queueRenderPage(num) {
-        if (pageRendering) {
-            setTimeout(function() { queueRenderPage(num); }, 100);
-        } else {
-            renderPage(num);
         }
-    }
 
-    function prevPage() {
-        if (pageNum <= 1) {
-            return;
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(function(page) {
+                var viewport = page.getViewport({ scale: 1.5 });
+                
+                // Adjust the height of the canvas to half of the viewport height.
+                // This is recommended because all the projecting pdfs have their pages half-filled with text.
+                canvas.height = viewport.height / 2;
+                canvas.width = viewport.width;
+
+                var renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                page.render(renderContext).promise.then(function() {
+                    pageRendering = false;
+                });
+            });
         }
-        pageNum--;
-        queueRenderPage(pageNum);
-    }
 
-    function nextPage() {
-        if (pageNum >= pdfDoc.numPages) {
-            return;
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                setTimeout(function() { queueRenderPage(num); }, 100);
+            } else {
+                renderPage(num);
+            }
         }
-        pageNum++;
-        queueRenderPage(pageNum);
-    }
 
-    function downloadPDF() {
-        // Get the PDF path from the URL query parameter
-        var urlParams = new URLSearchParams(window.location.search);
-        var pdfPath = urlParams.get('pdf');
-        
-        // Trigger the download
-        if (pdfPath) {
-            var link = document.createElement('a');
-            link.href = pdfPath;
-            link.download = 'document.pdf'; // Set the filename for the downloaded PDF
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } else {
-            console.error('PDF path not provided.');
+        function prevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
         }
-    }
 
-    window.onload = function() {
-        var urlParams = new URLSearchParams(window.location.search);
-        var pdfPath = urlParams.get('pdf');
-        if (pdfPath) {
+        function nextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+
+        function downloadPDF() {
+            // Get the PDF path from the URL query parameter
+            var urlParams = new URLSearchParams(window.location.search);
+            var pdfPath = urlParams.get('pdf');
+
+            // Trigger the download
+            if (pdfPath) {
+                var link = document.createElement('a');
+                link.href = pdfPath;
+                link.download = 'Certification.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                console.error('PDF path not provided.');
+            }
+        }
+
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var pdfPath = urlParams.get('pdf');
+
+            // If no PDF path is provided (for example if you open the html page directly with LiveServer), load the default first PDF
+            if (!pdfPath) {
+                // Construct the path to the first PDF
+                pdfPath = 'pdfs/Anagnorisi_1.pdf';
+                
+                // Update the URL to reflect the default PDF being displayed
+                window.history.pushState({}, '', 'viewerPDF.html?pdf=' + encodeURIComponent(pdfPath));
+            }
+
+            // Load the PDF into the canvas
             loadPDFIntoCanvas(pdfPath);
-        } else {
-            console.error('PDF path not provided.');
-        }
-    };
-    </script>
-
-    <script>
+        };
 
         function printPDF() {
             // Check if the PDF document is loaded
             if (pdfDoc) {
-                // Get the canvas element
                 var canvas = document.getElementById('pdfCanvas');
                 var win = window.open('', '_blank');
-                
+
                 // Write the canvas content to the new window
                 win.document.write('<img src="' + canvas.toDataURL() + '" style="width:100%;">');
                 
-                // Print the content
+                // Print the PDF content
                 win.print();
             } else {
                 console.error('PDF document not loaded.');
             }
         }
-    
-    </script>
 
-    <script>
         function openPDF(rowIdx) {
-            // Get the path to the PDF file based on the row index
-            var pdfPath = 'pdfs/assignment-2024-' + rowIdx + '.pdf'; // Adjust the path as needed
-        
-            // Open the PDF in a new window or tab
-            window.open('viewer.html?pdf=' + encodeURIComponent(pdfPath), '_blank');
+            // Update the current pdf index          
+            currentPDFIndex = rowIdx;
+
+            // Get the path to the PDF file based on the current row index
+            var pdfPath = 'pdfs/Anagnorisi_' + rowIdx + '.pdf';
+
+            // Changes the URL with the current displayed PDF without triggering a page reload
+            window.history.pushState({}, '', 'viewerPDF.html?pdf=' + encodeURIComponent(pdfPath));
+
+            // Load the pdf in the canvas
+            loadPDFIntoCanvas(pdfPath); 
         }
+
+        function prevPDF() {
+            if (currentPDFIndex > 1) {
+                currentPDFIndex--;
+                openPDF(currentPDFIndex);
+            }
+        }
+
+        function nextPDF() {
+            // Check with number 15 because the latest PDF is Anagnorisi_15.pdf
+            // In case, more pdfs are added CHANGE 15!
+            if (currentPDFIndex < 15) {
+                currentPDFIndex++;
+                openPDF(currentPDFIndex);
+            }
+        }
+
     </script>
-
-    <script>
-        function renderPage(num) {
-        pageRendering = true;
-        pdfDoc.getPage(num).then(function(page) {
-            var viewport = page.getViewport({ scale: 1.5 });
-
-            // Adjust the height of the canvas to half of the viewport height.
-            // This is possible because all the projecting pdfs have their pages half-filled with text.
-            canvas.height = viewport.height / 2;
-            canvas.width = viewport.width;
-            var renderContext = {
-                canvasContext: ctx,
-                viewport: viewport
-            };
-            page.render(renderContext).promise.then(function() {
-                pageRendering = false;
-            });
-        });
-    }
-    </script>
-
 
     <br><br>
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
